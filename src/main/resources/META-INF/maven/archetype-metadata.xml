@@ -46,5 +46,17 @@
                 <include>**/*.java</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
     </fileSets>
 </archetype-descriptor>
