@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.itemis.mosig.fluffy</groupId>
+    <artifactId>de.itemis.mosig.fluffy.archetype.java</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>maven-archetype</packaging>
+
+    <name>Archetype - de.itemis.mosig.fluffy.archetype.java</name>
+    <description>An improved variety of a Maven Java project archetype. Extra fluffy ❤</description>
+
+    <licenses>
+        <license>
+            <name>Eclipse Public License - v 2.0</name>
+            <url>https://www.eclipse.org/legal/epl-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>JanMosigItemis</id>
+            <name>Jan Mosig</name>
+            <organization>itemis AG</organization>
+            <organizationUrl>https://www.itemis.com/en</organizationUrl>
+            <email>jan.mosig@itemis.de</email>
+            <timezone>Europe/Berlin</timezone>
+            <url>https://github.com/JanMosigItemis</url>
+        </developer>
+    </developers>
+
+    <url>https://github.com/JanMosigItemis/fluffy-archetype-java</url>
+
+    <scm>
+        <connection>scm:git:https://github.com/JanMosigItemis/fluffy-archetype-java</connection>
+        <developerConnection>scm:git:https://github.com/JanMosigItemis/fluffy-archetype-java</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/JanMosigItemis/fluffy-archetype-java</url>
+    </scm>
+
+    <organization>
+        <name>itemis AG</name>
+        <url>https://www.itemis.com/en</url>
+    </organization>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <build.timestamp.formatted>${maven.build.timestamp}</build.timestamp.formatted>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm.ssZ</maven.build.timestamp.format>
+        <resource.delimiter>${*}</resource.delimiter>
+    </properties>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.0.1</version>
+            </extension>
+        </extensions>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
