@@ -418,6 +418,11 @@
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>full.qualified.name.of.your.main</mainClass>
                                 </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
+                                    <addHeader>false</addHeader>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                             </transformers>
                             <!-- Shading breaks module encapsulation anyway,
                                 see: https://stackoverflow.com/questions/51751981/why-does-maven-shade-plugin-remove-module-info-class -->
@@ -427,7 +432,7 @@
                                     <excludes>
                                         <exclude>**/module-info.class</exclude>
                                         <!-- Only specify this if you are sure that no dependency requires the settings from its own MANIFEST.MF file -->
-                                        <!-- <exclude>META-INF/MANIFEST.MF</exclude> -->
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
                                     </excludes>
                                 </filter>
                             </filters>
