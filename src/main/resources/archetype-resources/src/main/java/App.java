@@ -1,4 +1,4 @@
-package de.itemis.mosig.test;
+package $package;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

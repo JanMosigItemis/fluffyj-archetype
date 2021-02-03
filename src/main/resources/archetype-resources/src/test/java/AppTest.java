@@ -1,4 +1,4 @@
-package de.itemis.mosig.test;
+package $package;
 
 import static java.net.http.HttpClient.newHttpClient;
 import static java.net.http.HttpRequest.newBuilder;
