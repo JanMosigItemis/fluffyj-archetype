@@ -12,7 +12,7 @@ Projects created with this archetype will also contain reasonable default config
   
 ## Usage
 Generate a new project with this command:  
-`mvn archetype:generate -B -DarchetypeGroupId=de.itemis.mosig.fluffy -DarchetypeArtifactId=de.itemis.mosig.fluffy.archetype.java -DarchetypeVersion=1.0.0-SNAPSHOT -DgroupId=de.my.groupid -DartifactId=de.my.groupid.artifactid -Dversion=1.0.0-SNAPSHOT -Dpackage=de.my.groupid.artifactid`
+`mvn archetype:generate -B -DarchetypeGroupId=de.itemis.mosig.fluffy -DarchetypeArtifactId=de.itemis.mosig.fluffy.archetype.java -DarchetypeVersion=1.0.0 -DgroupId=de.my.groupid -DartifactId=de.my.groupid.artifactid -Dversion=1.0.0-SNAPSHOT -Dpackage=de.my.groupid.artifactid`
 
 ## Development
 The latest snapshot lives on the main development branch `develop`. The latest release lives on the `main` branch. Tags will be created for every release and for every new snapshot.  
