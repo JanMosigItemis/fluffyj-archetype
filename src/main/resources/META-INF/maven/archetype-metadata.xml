@@ -28,7 +28,9 @@
         <fileSet filtered="true" encoding="UTF-8">
             <directory></directory>
             <includes>
-                <include>.gitignore</include>
+                <!-- Adding .gitignore is currently broken: https://issues.apache.org/jira/projects/ARCHETYPE/issues/ARCHETYPE-505 -->
+                <!-- Thus, it will be renamed to .gitignore via META-INF/archetype-post-generate.groovy -->
+                <include>gitignore</include>
                 <include>.editorconfig</include>
                 <include>README.md</include>
                 <include>spotbugs-exclude.xml</include>
