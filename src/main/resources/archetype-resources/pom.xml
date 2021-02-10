@@ -78,6 +78,10 @@
         <equalsverifier.version>3.5.2</equalsverifier.version>
         <awaitility.version>4.0.3</awaitility.version>
         <wiremock.version>2.27.2</wiremock.version>
+        <arch.unit.version>0.16.0</arch.unit.version>
+        <!-- Currently no custom options are set but we need to define this variable
+            anyway, so that it gets replaced with 'empty' upon runtime. -->
+        <custom.jvm.options></custom.jvm.options>
     </properties>
 
     <dependencyManagement>
@@ -120,6 +124,13 @@
                 <groupId>org.junit.vintage</groupId>
                 <artifactId>junit-vintage-engine</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.tngtech.archunit/archunit-junit5 -->
+            <dependency>
+                <groupId>com.tngtech.archunit</groupId>
+                <artifactId>archunit-junit5</artifactId>
+                <version>${arch.unit.version}</version>
                 <scope>test</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
@@ -202,6 +213,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit5</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
@@ -256,10 +271,35 @@
                     <version>${jacoco.plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>default-prepare-agent</id>
+                            <id>prepare-unit-tests</id>
                             <goals>
                                 <goal>prepare-agent</goal>
                             </goals>
+                        </execution>
+                        <execution>
+                            <id>jacoco-site</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>report</goal>
+                                <goal>check</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <rule>
+                                        <element>CLASS</element>
+                                        <excludes>
+                                            <exclude>*Test</exclude>
+                                        </excludes>
+                                        <limits>
+                                            <limit>
+                                                <counter>LINE</counter>
+                                                <value>COVEREDRATIO</value>
+                                                <minimum>80%</minimum>
+                                            </limit>
+                                        </limits>
+                                    </rule>
+                                </rules>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -360,7 +400,8 @@
                     <!-- Try to avoid concurrency issues as much as possible. -->
                     <!-- This will have a negative impact on memory consumption an build speed. -->
                     <reuseForks>false</reuseForks>
-                    <argLine>${jvm.options}</argLine>
+                    <!-- $argLine is 'injected' by JaCoCo and contains instructions to setup its agent -->
+                    <argLine>${argLine} ${custom.jvm.options}</argLine>
                 </configuration>
             </plugin>
             <plugin>
