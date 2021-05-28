@@ -48,6 +48,12 @@
     <url>project.website</url>
 
     <properties>
+        <java.version>11</java.version>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
         <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
@@ -57,14 +63,11 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-exec-plugin.version>3.0.0</maven-exec-plugin.version>
         <maven-help-plugin.version>3.0.1</maven-help-plugin.version>
-        <java.version>11</java.version>
-        <maven.compiler.release>11</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
         <build.timestamp.formatted>${maven.build.timestamp}</build.timestamp.formatted>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm.ssZ</maven.build.timestamp.format>
+        <!-- Make sure we can use variables like ${variable.name} in resource files.
+            These will be expanded by the maven build as soon as the resources plugin processes all contents of the configured
+            resources directories. -->
         <resource.delimiter>${*}</resource.delimiter>
         <guava.version>30.1-jre</guava.version>
         <mockito.version>3.7.7</mockito.version>
@@ -252,7 +255,6 @@
             <scope>test</scope>
         </dependency>
         <!-- End of test dependencies -->
-
     </dependencies>
 
     <build>
@@ -340,6 +342,14 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${maven-jar-plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <mainClass>${package}.App</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -369,7 +379,7 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
+           <!-- <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
                 <executions>
@@ -392,7 +402,7 @@
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
                 </configuration>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -431,15 +441,12 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!-- We are not using built-in java support. Instead, we are explicitly calling the java binary.
+                    This gives us the opportunity to pass JVM arguments. Otherwise those arguments would have been passed to the JVM running the maven process which 
+                    then calls this plugin. -->
                 <configuration>
-                    <mainClass>${package}.App</mainClass>
+                    <executable>java</executable>
+                    <commandlineArgs>-jar ${project.build.directory}/${project.build.finalName}.jar</commandlineArgs>
                 </configuration>
             </plugin>
             <plugin>
