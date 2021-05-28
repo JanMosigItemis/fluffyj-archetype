@@ -6,7 +6,7 @@
 
     <groupId>de.itemis.mosig.fluffy</groupId>
     <artifactId>de.itemis.mosig.fluffy.archetype.java</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.2.0</version>
     <packaging>maven-archetype</packaging>
 
     <name>Archetype - de.itemis.mosig.fluffy.archetype.java</name>
