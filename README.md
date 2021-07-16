@@ -1,4 +1,4 @@
-# fluffy-archetype-java
+# fluffyj-archetype
 An improved variety of a Maven Java project archetype. Extra fluffy ❤  
   
 Contains defaults for often used maven properties and common test dependencies, e. g. [JUnit](https://junit.org/junit5) & [AssertJ](https://assertj.github.io/doc).  
@@ -12,7 +12,7 @@ Projects created with this archetype will also contain reasonable default config
   
 ## Usage
 Generate a new project with this command:  
-`mvn archetype:generate -B -DarchetypeGroupId=de.itemis.mosig.fluffy -DarchetypeArtifactId=de.itemis.mosig.fluffy.archetype.java -DarchetypeVersion=1.3.0-SNAPSHOT -DgroupId=de.my.groupid -DartifactId=de.my.groupid.artifactid -Dversion=1.0.0-SNAPSHOT -Dpackage=de.my.groupid.artifactid`
+`mvn archetype:generate -B -DarchetypeGroupId=de.itemis.mosig.fluffy -DarchetypeArtifactId=de.itemis.mosig.fluffyj.archetype -DarchetypeVersion=1.3.0-SNAPSHOT -DgroupId=de.my.groupid -DartifactId=de.my.groupid.artifactid -Dversion=1.0.0-SNAPSHOT -Dpackage=de.my.groupid.artifactid`
 
 ### Note on usage with Java 16
 When running Maven with Java 16 make sure to use the latest archetype plugin version (currently 3.2.0). You can force the version by calling Maven like this:  
