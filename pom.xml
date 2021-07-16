@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.itemis.mosig.fluffy</groupId>
-    <artifactId>de.itemis.mosig.fluffy.archetype.java</artifactId>
-    <version>1.2.0</version>
+    <artifactId>de.itemis.mosig.fluffyj.archetype</artifactId>
+    <version>1.3.0-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
-    <name>Archetype - de.itemis.mosig.fluffy.archetype.java</name>
+    <name>Fluffy J Archetype</name>
     <description>An improved variety of a Maven Java project archetype. Extra fluffy ❤</description>
 
     <licenses>
@@ -32,13 +32,13 @@
         </developer>
     </developers>
 
-    <url>https://github.com/JanMosigItemis/fluffy-archetype-java</url>
+    <url>https://github.com/JanMosigItemis/fluffyj-archetype</url>
 
     <scm>
-        <connection>scm:git:https://github.com/JanMosigItemis/fluffy-archetype-java</connection>
-        <developerConnection>scm:git:https://github.com/JanMosigItemis/fluffy-archetype-java</developerConnection>
+        <connection>scm:git:https://github.com/JanMosigItemis/fluffyj-archetype</connection>
+        <developerConnection>scm:git:https://github.com/JanMosigItemis/fluffyj-archetype</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/JanMosigItemis/fluffy-archetype-java</url>
+        <url>https://github.com/JanMosigItemis/fluffyj-archetype</url>
     </scm>
 
     <organization>
