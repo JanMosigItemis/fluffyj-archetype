@@ -12,7 +12,7 @@ Projects created with this archetype will also contain reasonable default config
   
 ## Usage
 Generate a new project with this command:  
-`mvn archetype:generate -B -DarchetypeGroupId=de.itemis.mosig.fluffy -DarchetypeArtifactId=de.itemis.mosig.fluffyj.archetype -DarchetypeVersion=1.3.0 -DgroupId=de.my.groupid -DartifactId=de.my.groupid.artifactid -Dversion=1.0.0-SNAPSHOT -Dpackage=de.my.groupid.artifactid`
+`mvn archetype:generate -B -DarchetypeGroupId=de.itemis -DarchetypeArtifactId=fluffyj.archetype -DarchetypeVersion=1.4.0-SNAPSHOT -DgroupId=de.my.groupid -DartifactId=de.my.groupid.artifactid -Dversion=1.0.0-SNAPSHOT -Dpackage=de.my.groupid.artifactid`
 
 ### Note on usage with Java 16
 When running Maven with Java 16 make sure to use the latest archetype plugin version (currently 3.2.0). You can force the version by calling Maven like this:  
@@ -28,7 +28,7 @@ Background: The fluffy archetype is using a post generation script based on Groo
 Until Java 16 this used to be:  
 `[INFO] Executing META-INF/archetype-post-generate.groovy post-generation script
 WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass$3$1 (file:/C:/Users/mosig_user/.m2/repository/org/codehaus/groovy/groovy/1.8.3/groovy-1.8.3.jar) to method java.lang.Object.finalize()
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass$3$1 (file:/C:/Users/itsme/.m2/repository/org/codehaus/groovy/groovy/1.8.3/groovy-1.8.3.jar) to method java.lang.Object.finalize()
 WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass$3$1
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release`  
